@@ -5,7 +5,7 @@ class Judul extends React.Component {
 	render(){
 		return(
 			<View>
-			<Text style={salon.judul}> BIODATA </Text>
+			<Text style={salon.judul}>{this.props.title}</Text>
 			</View>
 		)
 	}
