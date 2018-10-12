@@ -1,64 +1,71 @@
 import React, {Component} from 'react';
-import {Platform, styleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet,Text,View,TextInput,Button,Image,TouchableOpacity,Alert,True} from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import Judul from './Judul';
 
-export default class Login extends Component {
-	render() {
-	return(
-		<View style={styles.container}>
-		<Image
-		style={{width:70, height:50}}
-		source={require('./Foto/fofo.jpg')}
-		/>
-		<TextInput
-		style={styles.inputBox}
-		placeholder="Email atau No Telepon"
-		/>
-		<TextInput style={styles.inputBox}
-		placeholder="Password"
-		secureTextEntry={true} //sandi titik.....
-		/>
-		<TouchableOpacity style={styles.inputBox}>
-			<Text style={styles.buttonText}> Masuk </Text>
-		</TouchableOpacity>
+class Input extends Component{
 
-		<TouchableOpacity>
-		<Text> Lupa Kata Sandi? </Text>
-		</TouchableOpacity>
-		</View>
-		)
-	}
-}
-const styles = StyleSheet.create({
-   container:{
-    flex: 1,
-    backgroundColor: "red",
-    alignItems: 'center',
-    justifycontent: 'center'
-  },
-  inputBox:{
-  	width:250,
-  	fontSize:13,
-  	color:'#000000'
-  },
-  button:{
-  	width:250,
-  	height:40,
-  	alignItems:'center',
-  	justifycontent:'center',
-  	color: '#000000'
-  },
-  button:{
-  	width:250,
-  	height:40,
-  	alignItems:'center',
-  	justifycontent:'center',
-  	color: '#3B85998',
-  	marginVertical:10,
-  	paddingHorizontal: 80
-  },
-
-  buttonText:{
-  	fontSize: 13,
-  	color:'#f7f7f7',
+  render(){
+    return(
+      <View style={styles.container}>
+        <Image source = {require('./fofo.jpg')} style={{width: 100, height: 100}}/>
+      <TextInput
+        style = {styles.inputBox}
+        placeholder = "Telepon atau Email"
+      />
+      <TextInput
+        style = {styles.inputBox}
+        placeholder = "Password"
+        secureTextEntry = {True}
+     />
+      <Button
+        onPress = {() => this.props.navigation.navigate('Judul')}
+        style = {styles.button}
+        title = "Login"
+        color = "#02E8B0"
+      />
+      </View>
+    )
   }
+}
+const AppNavigator = createStackNavigator ({
+  Input : Input,
+  Judul : Judul,
+},
+{
+  initialRouteName : 'Input',
 })
+
+export default class App extends Component<Props> {
+  render() {
+    return(
+      <AppNavigator/>
+      );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  container : {
+    flex : 1,
+    justifyContent : 'center',
+    alignItems : 'center',
+    backgroundColor : '#fff',
+  },
+
+  inputBox : {
+    width : 250,
+    fontSize : 13,
+  },
+
+  button : {
+    width : 250, 
+    height: 40,
+    alignItems : 'center',
+    backgroundColor : '#3B5998',
+    marginVertical : 10,
+    paddingHorizontal : 60,
+    flexDirection : 'row',
+    justifyContent : 'space-between'
+  }
+});

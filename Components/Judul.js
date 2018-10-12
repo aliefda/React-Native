@@ -1,22 +1,42 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {Component} from 'react';
+import {View,Text,StyleSheet,Button,Alert,style} from 'react-native';
 
-class Judul extends React.Component {
+export default class Judul extends Component{
+	
 	render(){
 		return(
 			<View>
-			<Text style={salon.judul}>{this.props.title}</Text>
+				<Text>Nama : Alief Dwi Arjuna</Text>
+				<Text>No Absen : 04</Text>
+				<Text>Kelas : XI RPL 2</Text>
+				<Text>SMK TELKOM PURWOKERTO</Text>
+
 			</View>
+
 		)
 	}
 }
 
-const salon = {
-	judul : {
-		color: '#f00',
-		fontSize: 50,
-		fontWeight: 'bold',
-		backgroundColor: '#0f0'
+const styles = StyleSheet.create({
+	container : {
+		flex : 1,
+		justifyContent : 'center',
+		alignItems : 'center',
+		backgroundColor : '#ffff',
+	}
+});
+
+const warna = {
+	b : {
+		color : 'black',
+		fontSize : 20,
+		fontWeight : 'bold',
 	}
 }
-export default Judul;
+
+const salon = {
+	cantik : {
+		color : '#000',
+		fontSize : 14,
+	}
+}
